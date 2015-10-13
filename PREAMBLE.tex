@@ -1,0 +1,29 @@
+%
+%
+%%% FONTS %%%
+% Extended CM font
+\usepackage{lmodern}
+% Math font
+\usepackage[T1]{eulervm}
+%\usepackage{cmbright}
+%\usepackage{concrete}
+%\usepackage{concmath}
+
+%%% ENCODING & LANGUAGE
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,french]{babel} %LOADED by Beamerclass ??
+
+
+% Misc
+\usepackage{adjustbox}
+\usepackage{mathtools,relsize}
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+
+% Commands
+\newcommand{\bm}[1]{\mathbold{#1}}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert} % absolute value
+\newcommand{\ABS}[1]{\abs{\bm{#1}}}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert} % norm of a vector
+\DeclarePairedDelimiter{\abra}{\langle}{\rangle} % angle brackets

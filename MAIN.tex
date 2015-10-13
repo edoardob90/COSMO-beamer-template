@@ -1,0 +1,65 @@
+\documentclass[mathserif,professionalfont]{beamer}
+
+\input{PREAMBLE}
+
+\usetheme[%
+          bullet=circle,% Use circles instead of squares for bullets.
+          titleline=true,% Show a line below the frame title.
+          alternativetitlepage=false,% Use the fancy title page
+          titlepagelogo=Pictures/EPFL-Logo,% EPFL for the alternative title page style. DO NOT MODIFY!
+          ]{Torino}
+          
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%          
+% Here, user should just edit the following %
+% Title, author, institution
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author[Short Author]{Long Author(s)}
+
+\title{TITLE}
+
+\institute[COSMO, EPFL]{Laboratory of Computational Science and Modeling,\\ Institute of Materials,\\ EPF Lausanne}
+
+\date[Short Date]{Date}
+
+% Logos on the title page in the default style
+%%% COMMENT OUT the following lines if ALTERNATIVETITLEPAGE=TRUE 
+%\titlegraphic{%
+%    \adjustbox{valign=t}{%
+%        \includegraphics[height=1.cm]{Pictures/EPFL-Logo}\qquad
+%        \includegraphics[height=1.cm]{Pictures/cosmo_logo}
+%    }
+%}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTHING SHOULD BE EDITED BELOW THIS LINE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Theme specifications
+\definecolor{EPFLred}{RGB}{229,0,28}
+\setbeamercolor*{structure}{fg=EPFLred}
+\setbeamerfont{caption}{size=\scriptsize}
+
+
+% If you don't want the outline to pop-up every section, comment out the following 8 lines
+\AtBeginSection[]{%
+    \begin{frame}[plain]
+        \addtocounter{framenumber}{-1}
+        \frametitle{Outline}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+
+\begin{document}
+
+% Title page
+\include{TITLEPAGE}
+
+% Real content
+\include{CONTENT}
+
+\end{document}
+
