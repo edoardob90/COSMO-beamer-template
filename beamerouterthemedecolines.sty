@@ -6,7 +6,7 @@
 % 2. under the GNU Public License.
 %
 %
-% Modified by Edoardo Baldi 2015
+% Modified by Edoardo Baldi 2015-2016-2017
 %
 
 \mode<presentation>
@@ -14,6 +14,9 @@
 % String used between the current page and the total page count.
 \def\beamer@decolines@pageofpages{/}
 \DeclareOptionBeamer{pageofpages}{\def\beamer@decolines@pageofpages{#1}}
+
+% Here we have the possibility of enabling/disabling the "page of pages" feature
+\DeclareOptionBeamer{showpageofpages}[true]{\def\beamer@decolines@showpageofpages{#1}}
 
 % Show a line below the frame title.
 \DeclareOptionBeamer{titleline}[true]{\def\beamer@decolines@titleline{#1}}
@@ -70,6 +73,9 @@
 \addtolength{\beamer@decolines@watermarkheightupperorig}{-\beamer@decolines@watermarkheightbottom}
 \multiply\beamer@decolines@watermarkheightupperorig by \beamer@decolines@watermarkheightmult
 
+% Comparison token set to "true"
+\def\beamer@decolines@truetext{true}%
+
 % Footer.
 \defbeamertemplate*{footline}{decolines theme}
 {
@@ -77,7 +83,11 @@
   % Page number.
   \hbox{%
   \begin{beamercolorbox}[wd=.2\paperwidth,ht=0ex,dp=0ex,center]{}%
-    \usebeamerfont{palette primary}\insertframenumber{} \beamer@decolines@pageofpages{} \inserttotalframenumber%
+    \ifx\beamer@decolines@showpageofpages\beamer@decolines@truetext%
+        \usebeamerfont{palette primary}\insertframenumber{} \beamer@decolines@pageofpages{} \inserttotalframenumber%
+    \else
+        \usebeamerfont{palette primary}\inserttotalframenumber%
+    \fi
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.8\paperwidth,ht=0ex,dp=0ex]{}%
   \end{beamercolorbox}%
@@ -150,7 +160,6 @@
     \vskip-1ex%
     \if@tempswa\else\vskip-\beamer@leftmargin\fi
   \end{beamercolorbox}%
-  \def\beamer@decolines@truetext{true}%
   \ifx\beamer@decolines@titleline\beamer@decolines@truetext%
     \vskip-.5\beamer@leftmargin%
     \begin{beamercolorbox}[wd=\textwidth,ht=.1ex,dp=0ex]{linemid}%
