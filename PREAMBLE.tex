@@ -27,3 +27,21 @@
 \newcommand{\ABS}[1]{\abs{\bm{#1}}}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert} % norm of a vector
 \DeclarePairedDelimiter{\abra}{\langle}{\rangle} % angle brackets
+
+% adds reference to bottom right of corner of a slide
+\usepackage[absolute,overlay]{textpos} % text references in slide corners
+\newcommand\textref[1]{%
+  \begin{textblock*}{\paperwidth}(0pt,0.99\textheight)
+  \raggedleft \tiny{\emph{#1}}\hspace{.5em}
+  \end{textblock*}}
+% with argument for position. 1: x, 2: y, 3: text
+\newcommand\Textref[3]{%
+  \begin{textblock*}{#1\paperwidth}(0pt,#2\textheight)
+  \raggedleft \tiny{\emph{#3}}\hspace{.5em}
+  \end{textblock*}}
+
+% for drawing circles around numbers
+% ex. \circled{1} Add some text here.
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
